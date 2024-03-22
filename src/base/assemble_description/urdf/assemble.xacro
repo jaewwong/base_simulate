@@ -1,0 +1,140 @@
+<?xml version="1.0" ?>
+<robot name="assemble" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find assemble_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find assemble_description)/urdf/assemble.trans" />
+<xacro:include filename="$(find assemble_description)/urdf/assemble.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.0386343413080128 0.005251026561116134 0.1522797253576829" rpy="0 0 0"/>
+    <mass value="80.83242778216001"/>
+    <inertia ixx="1.436602" iyy="2.904591" izz="3.537297" ixy="0.15751" iyz="-0.000177" ixz="0.315784"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://assemble_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://assemble_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Flipper_FR_1">
+  <inertial>
+    <origin xyz="0.1390663239971142 0.038446211312634676 7.616838517660041e-06" rpy="0 0 0"/>
+    <mass value="7.05690661944078"/>
+    <inertia ixx="0.012198" iyy="0.155853" izz="0.151857" ixy="0.001425" iyz="0.0" ixz="7e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.209253 0.261179 -0.112472" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://assemble_description/meshes/Flipper_FR_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.209253 0.261179 -0.112472" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://assemble_description/meshes/Flipper_FR_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Flipper_BR_1">
+  <inertial>
+    <origin xyz="-0.13906534823739614 0.038446211312630874 -6.957968208876064e-06" rpy="0 0 0"/>
+    <mass value="7.05690661944078"/>
+    <inertia ixx="0.012198" iyy="0.155853" izz="0.151857" ixy="-0.001425" iyz="-0.0" ixz="7e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.203747 0.261179 -0.112472" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://assemble_description/meshes/Flipper_BR_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.203747 0.261179 -0.112472" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://assemble_description/meshes/Flipper_BR_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Flipper_BL_1">
+  <inertial>
+    <origin xyz="-0.13906534823739802 -0.03844678761096035 7.61683859620832e-06" rpy="0 0 0"/>
+    <mass value="7.05690661944078"/>
+    <inertia ixx="0.012198" iyy="0.155853" izz="0.151857" ixy="0.001425" iyz="-0.0" ixz="-7e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.203747 -0.271621 -0.112472" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://assemble_description/meshes/Flipper_BL_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.203747 -0.271621 -0.112472" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://assemble_description/meshes/Flipper_BL_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Flipper_FL_1">
+  <inertial>
+    <origin xyz="0.13906632399711208 -0.03844678761095813 -6.957968285467575e-06" rpy="0 0 0"/>
+    <mass value="7.05690661944078"/>
+    <inertia ixx="0.012198" iyy="0.155853" izz="0.151857" ixy="-0.001425" iyz="0.0" ixz="-7e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.209253 -0.271621 -0.112472" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://assemble_description/meshes/Flipper_FL_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.209253 -0.271621 -0.112472" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://assemble_description/meshes/Flipper_FL_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Flipper_joint_FR" type="continuous">
+  <origin xyz="0.209253 -0.261179 0.112472" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Flipper_FR_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="Flipper_joint_BR" type="continuous">
+  <origin xyz="-0.203747 -0.261179 0.112472" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Flipper_BR_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="Flipper_joint_BL" type="continuous">
+  <origin xyz="-0.203747 0.271621 0.112472" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Flipper_BL_1"/>
+  <axis xyz="-0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="Flipper_joint_FL" type="continuous">
+  <origin xyz="0.209253 0.271621 0.112472" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Flipper_FL_1"/>
+  <axis xyz="-0.0 1.0 -0.0"/>
+</joint>
+
+</robot>

@@ -1,0 +1,23 @@
+assemble_controller:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Position Controllers --------------------------------------
+  Flipper_joint_FR_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Flipper_joint_FR
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Flipper_joint_BR_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Flipper_joint_BR
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Flipper_joint_BL_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Flipper_joint_BL
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Flipper_joint_FL_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Flipper_joint_FL
+    pid: {p: 100.0, i: 0.01, d: 10.0}

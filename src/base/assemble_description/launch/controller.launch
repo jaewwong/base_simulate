@@ -1,0 +1,9 @@
+<launch>
+
+<rosparam file="$(find assemble_description)/launch/controller.yaml" command="load"/>
+<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="assemble" args="Flipper_joint_FR_position_controller Flipper_joint_BR_position_controller Flipper_joint_BL_position_controller Flipper_joint_FL_position_controller joint_state_controller "/>
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+  <remap from="/joint_states" to="/assemble/joint_states"/>
+</node>
+
+</launch>
